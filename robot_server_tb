@@ -3,12 +3,12 @@
 int sc_main(int argc, char* argv[]) 
 {
 	sc_signal <bool> clk;
-	sc_signal < sc_int <8> > obstacle1x,obstacle1y, obstacle2x,obstacle2y, obstacle3x, obstacle3y ;	
+	sc_signal < sc_int <8> > obstacle1x,obstacle1y, obstacle2x,obstacle2y, obstacle3x, obstacle3y;	
 	sc_signal < sc_int <8> > robot1x, robot1y, robot2x, robot2y, robot3x, robot3y;
 	sc_signal < sc_int<8> > count1, count2, count3;
-	sc_signal < sc_int<8> > current_index1x,current_index2x,current_index3x, current_index1y,current_index2y,current_index3y;
-	//sc_signal < sc_int<8> > next_index1x, next_index2x, next_index3x, next_index1y, next_index2y, next_index3y;
-	//sc_signal < sc_int<8> > status1, status2, status3;
+	sc_signal < sc_int<8> > current_index1x,current_index2x,current_index3x, current_index1y,current_index2y,current_index3y, next_index2x, next_index3x;
+	sc_signal < bool > status1, status2, status3;
+	sc_signal <sc_int<8> > next_index1x,next_index1y, next_index2y, next_index3y;
 	//sc_clock clock("Clock",1,SC_NS);
 	//sc_clock dist_x("dist_x",1,SC_NS);
 
@@ -23,16 +23,13 @@ int sc_main(int argc, char* argv[])
 	rs.clk(clk);								rs.count1(count1);
 	rs.count2(count2);					        rs.count3(count3);
 
-	rs.current_index1x(current_index1x); rs.current_index2x(current_index2x); rs.current_index3x(current_index3x);
-	rs.current_index1y(current_index1y); rs.current_index2y(current_index2y); rs.current_index3y(current_index3y);
+	rs.current_index1x(current_index1x); rs.current_index2x(current_index2x); rs.current_index3x(current_index3x); rs.next_index2x(next_index2x);
+	rs.current_index1y(current_index1y); rs.current_index2y(current_index2y); rs.current_index3y(current_index3y); rs.next_index3x(next_index3x);
+	rs.next_index1x(next_index1x);		 rs.next_index1y(next_index1y);		  rs.next_index2y(next_index2y);	   rs.next_index3y(next_index3y);		
 	
-	//rs.next_index1x(next_index1x); rs.next_index2x(next_index2x); rs.next_index3x(next_index3x);
-	//rs.next_index1x(next_index1y); rs.next_index2y(next_index2y);  rs.next_index3y(next_index3y);
-		
-	/*
 	rs.status1(status1);						rs.status2(status2);
 	rs.status3(status3);
-*/	
+
 	sc_trace_file *file;
 	file = sc_create_vcd_trace_file("robot");
 	//file->set_time_unit(1, SC_NS);
@@ -50,13 +47,14 @@ int sc_main(int argc, char* argv[])
 	sc_trace(file, current_index1x, "current_index1x"); sc_trace(file, current_index1y, "current_index1y");
 	sc_trace(file, current_index2x, "current_index2x"); sc_trace(file, current_index2y, "current_index2y");
 	sc_trace(file, current_index3x, "current_index3x"); sc_trace(file, current_index3y, "current_index3y");
-	/*
+	
 	sc_trace(file, next_index1x, "next_index1x");		sc_trace(file, next_index1y, "next_index1y");
 	sc_trace(file, next_index2x, "next_index2x");		sc_trace(file, next_index2y, "next_index2y");
 	sc_trace(file, next_index3x, "next_index3x");		sc_trace(file, next_index3y, "next_index3y");
+	
 	sc_trace(file, status1, "status1");					sc_trace(file, status2, "status2");
 	sc_trace(file, status3, "status3");
-	*/
+
 	robot1x=1;
 	robot1y=1;
 	obstacle1x=0;
@@ -74,7 +72,7 @@ int sc_main(int argc, char* argv[])
 
 	count1=0;
 
-	for (int i = 0; i<=200; i++)
+	for (int i = 0; i<=80; i++)
 {
     clk = 0; 
     sc_start(1, SC_NS);
@@ -82,7 +80,7 @@ int sc_main(int argc, char* argv[])
     sc_start(1, SC_NS);
 };
 
-	/*
+	
 	obstacle1x=0;
 	obstacle1y=0;
 	obstacle2x=0;
@@ -90,13 +88,14 @@ int sc_main(int argc, char* argv[])
 	obstacle3x=0;
 	obstacle3y=0;
 	count2=0;
-	for (int i = 61; i<=80; i++)
+	for (int i = 81; i<=160; i++)
 {
     clk = 0; 
     sc_start(1, SC_NS);
     clk = 1; 
     sc_start(1, SC_NS);
 };
+	
 	obstacle1x=0;
 	obstacle1y=0;
 	obstacle2x=0;
@@ -104,14 +103,14 @@ int sc_main(int argc, char* argv[])
 	obstacle3x=0;
 	obstacle3y=0;
 	count2=0;
-	for (int i = 81; i<=180; i++)
+	for (int i = 161; i<=240; i++)
 {
     clk = 0; 
     sc_start(1, SC_NS);
     clk = 1; 
     sc_start(1, SC_NS);
 };
-*/
+
 
 //sc_start(800, SC_NS);
 sc_close_vcd_trace_file(file);
