@@ -4,44 +4,85 @@
 {
 	temp_obstacle1y= obstacle1y;
 	temp_robot1y = robot1y;
-	current_index1y = temp_robot1y;
 	temp_obstacle1x= obstacle1x;
 	temp_robot1x = robot1x;	
-	current_index1x = temp_robot1x;
 	temp_count1= count1;
 	temp_count2= count2;
 	temp_count3= count3;
+
 if (temp_count1==0)
 {
 	if (temp_obstacle1y==0 && temp_obstacle1x==0 && temp_robot1y <= 15)
 	{
+		if (temp_robot1y>=10 && temp_robot1y<15)
+		{
+		robot1y = temp_robot1y + 1;
+		temp_robot1y= robot1y ;
+		next_index1y = temp_robot1y + 2;
+		current_index1y = temp_robot1y + 1;
+		}
 		robot1y = temp_robot1y + 2;
 		temp_robot1y= robot1y ;
+		next_index1y = temp_robot1y + 4;
+		current_index1y = temp_robot1y + 2;
+		if (current_index1y> temp_robot1y)
+		{
+		current_index1y = temp_robot1y;
+		}
+		status1=1;
 	}
 
 	if (temp_robot1y>=16 && temp_robot1x <66 && temp_obstacle1y==0 && temp_obstacle1x==0)
 	{
+		if (temp_robot1x>=60 && temp_robot1y<66)
+		{
+		robot1x = temp_robot1x + 1;
+		temp_robot1x= robot1x ;
+		next_index1x = temp_robot1x + 1;
+		}
 		robot1x= temp_robot1x + 2 ;
 		temp_robot1x = robot1x ;
 		temp_robot1y = robot1y ;
+		status1=1;
+		next_index1x = temp_robot1x + 4;
+		current_index1x = temp_robot1x + 2;
+		if (current_index1x> temp_robot1x)
+		{
+		current_index1x = temp_robot1x;
+		}
 	}
 
 		 
 	if ( temp_robot1y<52 && temp_robot1x>= 66 && temp_obstacle1y==0 && temp_obstacle1x==0 )
 	{
+		if (temp_robot1y>=46 && temp_robot1y<52 )
+		{
+		robot1y = temp_robot1y + 1;
+		temp_robot1y= robot1y ;
+		next_index1y = temp_robot1y + 1;
+		}
 		robot1y= temp_robot1y + 2 ;
 		temp_robot1y= robot1y ;
 		temp_robot1x= robot1x ;
+		next_index1y = temp_robot1y + 4;
+		current_index1y = temp_robot1y + 2;
+		if (current_index1y> temp_robot1y)
+		{
+			current_index1y = temp_robot1y;
+		}
+		status1=1;
 	}
 
 	if (temp_obstacle1y==1 )
 		{
 		robot1y= robot1y;
+		status1=0;
 		}
 	else
 	if (temp_obstacle1x==1 )
 		{
 		robot1x= robot1x;
+		status1=0;
 		}
  }
 
@@ -50,46 +91,113 @@ if (temp_count1==0)
 {
 	if (temp_obstacle1y==0 && temp_obstacle1x==0 && temp_robot1y <= 4)
 	{
+	/*	if (temp_robot1y<=2)
+		{
+		robot1y = temp_robot1y + 1;
+		temp_robot1y= robot1y ;
+		next_index1y = temp_robot1y + 1;
+		}*/
 		robot1y = temp_robot1y + 2;
 		temp_robot1y= robot1y ;
+		next_index1y = temp_robot1y + 4;
+		current_index1y = temp_robot1y + 2;
+		if (current_index1y> temp_robot1y)
+		{
+			current_index1y = temp_robot1y;
+		}
+		status1=1;
 	}
 
 	if (temp_robot1y>=4 && temp_robot1x <22 && temp_obstacle1y==0 && temp_obstacle1x==0)
 	{
+	/*	if (temp_robot1x >= 16 && temp_robot1x < 22)
+		{
+		robot1x = temp_robot1x + 1;
+		temp_robot1x= robot1x ;
+		next_index1x = temp_robot1x + 1;
+		}*/
 		robot1x= temp_robot1x + 2 ;
 		temp_robot1x = robot1x ;
 		temp_robot1y = robot1y ;
+		next_index1x = temp_robot1x + 4;
+		current_index1x = temp_robot1x + 2;
+		if (current_index1x> temp_robot1x)
+		{
+			current_index1x = temp_robot1x;
+		}
+		status1=1;
 	}
 		 
 	if ( temp_robot1y<16 && temp_robot1x>= 22 && temp_obstacle1y==0 && temp_obstacle1x==0 )
 	{
+	/*	if (temp_robot1y>=11 && temp_robot1y<16)
+		{
+		robot1y = temp_robot1y + 1;
+		temp_robot1y= robot1y ;
+		next_index1y = temp_robot1y + 1;
+		}*/
 		robot1y= temp_robot1y + 2 ;
 		temp_robot1y= robot1y ;
 		temp_robot1x= robot1x ;
+		next_index1y = temp_robot1y + 4;
+		current_index1y = temp_robot1y + 2;
+		if (current_index1y> temp_robot1y)
+		{
+			current_index1y = temp_robot1y;
+		}
+		status1=1;
 	}
 
 		if (temp_robot1y>=16 && temp_robot1x <68 && temp_obstacle1y==0 && temp_obstacle1x==0)
 	{
+	/*	if (temp_robot1x>=62 && temp_robot1x<68)
+		{
+		robot1x = temp_robot1x + 1;
+		temp_robot1x= robot1x ;
+		next_index1x = temp_robot1x + 1;
+		}*/
 		robot1x= temp_robot1x + 2 ;
 		temp_robot1x = robot1x ;
 		temp_robot1y = robot1y ;
+		current_index1x = temp_robot1x + 2;
+		next_index1x = temp_robot1x + 4;
+		if (current_index1x> temp_robot1x)
+		{
+			current_index1x = temp_robot1x;
+		}
+		status1=1;
 	}
 		 
 	if ( temp_robot1y<52 && temp_robot1x>= 68 && temp_obstacle1y==0 && temp_obstacle1x==0 )
 	{
+	/*	if (temp_robot1y>=47 && temp_robot1y<52)
+		{
+		robot1y = temp_robot1y + 1;
+		temp_robot1y= robot1y ;
+		next_index1y = temp_robot1y + 1;
+		}*/
 		robot1y= temp_robot1y + 2 ;
 		temp_robot1y= robot1y ;
 		temp_robot1x= robot1x ;
+		next_index1y = temp_robot1y + 4;
+		current_index1y = temp_robot1y + 2;
+		if (current_index1y> temp_robot1y)
+		{
+			current_index1y = temp_robot1y;
+		} 
+		status1=1;
 	}
 
 	if (temp_obstacle1y==1 )
 		{
 		robot1y= robot1y;
+		status1=0;
 		}
 	else
 	if (temp_obstacle1x==1 )
 		{
 		robot1x= robot1x;
+		status1=0;
 		}
   }
 }// bracket for the function 
@@ -103,8 +211,6 @@ if (temp_count1==0)
 	temp_robot2y = robot2y;
 	temp_obstacle2x= obstacle2x;
 	temp_robot2x = robot2x;	
-	current_index2x= temp_robot2x;
-	current_index2y= temp_robot2y;
 
 if (temp_count2==0)
  {
@@ -112,6 +218,13 @@ if (temp_count2==0)
 	{
 		robot2y = temp_robot2y - 3;
 		temp_robot2y= robot2y ;
+		next_index2y = temp_robot2y -6;
+		current_index2y= robot2y;
+		status2=1;
+		if (current_index2y> temp_robot2y)
+		{
+			current_index2y = temp_robot2y;
+		}
 	}
 	
 		if (temp_robot2y<=3 && temp_robot2x >0 && temp_robot2x <66 && temp_obstacle2y==0 && temp_obstacle2x==0 )
@@ -119,22 +232,36 @@ if (temp_count2==0)
 			robot2x= temp_robot2x + 3 ;
 			temp_robot2x = robot2x ;
 			temp_robot2y = robot2y ;
+			next_index2x = temp_robot2x +6;
+			current_index2x= temp_robot2x+3;
+			status2=1;
+				if (current_index2x> temp_robot2x)
+				{
+				current_index2x = temp_robot2x;
+				}
 		}
 		
 		if ( temp_robot2y>=3 && temp_robot2x<= 66 && temp_obstacle2y==0 && temp_obstacle2x==0)
 			{
 				temp_robot2y= robot2y ;
 				temp_robot2x= robot2x ;
+				next_index2x = temp_robot2x;
+				next_index2y = temp_robot2y;
+				current_index2y= temp_robot2y;
+				current_index2x= temp_robot2x;
+				status2=1;
 			} 
 
 	if (temp_obstacle2y==1 )
 		{
 		robot2y= robot2y;
+		status2=0;
 		}
 	else
 	if (temp_obstacle2x==1 )
 		{
 		robot2x= robot2x;
+		status2=0;
 		}
   }
  
@@ -145,6 +272,13 @@ if (temp_count2==1)
 	{
 		robot2y = temp_robot2y - 3;
 		temp_robot2y= robot2y ;
+		status2=1;
+		current_index2y= robot2y ;
+		next_index2y = temp_robot2y -6;
+			if (current_index2y> temp_robot2y)
+			{
+			current_index2y = temp_robot2y;
+			}
 	}
 	
 		if (temp_robot2y<=19 && temp_robot2x <=51 && temp_obstacle2y==0 && temp_obstacle2x==0 )
@@ -152,30 +286,53 @@ if (temp_count2==1)
 			robot2x= temp_robot2x + 3 ;
 			temp_robot2x = robot2x ;
 			temp_robot2y = robot2y ;
+			next_index2x = temp_robot2x +6;
+			current_index2x= temp_robot2x +3 ;
+				if (current_index2x> temp_robot2x)
+				{
+				current_index2x = temp_robot2x;
+				}
+			status2=1;
 		}
 	
 		if (temp_robot2y>=5 && temp_robot2x >=51 && temp_obstacle2y==0 && temp_obstacle2x==0 )
 	{
 		robot2y = temp_robot2y - 3;
 		temp_robot2y= robot2y ;
+		next_index2y = temp_robot2y -6;
+		current_index2y= robot2y;
+			if (current_index2y> temp_robot2y)
+			{
+			current_index2y = temp_robot2y;
+			}
+		status2=1;
 	}
 	
 		if (temp_robot2y<=5 && temp_robot2x <=68 && temp_obstacle2y==0 && temp_obstacle2x==0 )
 		{
 			robot2x= temp_robot2x + 3 ;
+			next_index2x = temp_robot2x +6;
 			temp_robot2x = robot2x ;
 			temp_robot2y = robot2y ;
+			current_index2x= temp_robot2x+3;
+			if (current_index2x> temp_robot2x)
+			{
+				current_index2x = temp_robot2x;
+			}
+			status2=1;
 		}
 
 
 	if (temp_obstacle2y==1 )
 		{
 		robot2y= robot2y;
+		status2=0;
 		}
 	else
 	if (temp_obstacle2x==1 )
 		{
 		robot2x= robot2x;
+		status2=0;
 		}
    }
 }
@@ -187,8 +344,10 @@ if (temp_count2==1)
 	temp_robot3y = robot3y;
 	temp_obstacle3x= obstacle3x;
 	temp_robot3x = robot3x;	
-	current_index3x= temp_robot3x;
-	current_index3y= temp_robot3y;
+	current_index3x= temp_robot3x+1;
+	current_index3y= temp_robot3y+1;
+	next_index3x = temp_robot3x + 2;
+	next_index3y = temp_robot3y + 2;
 
 	if (temp_count3==0)
 	{
@@ -196,6 +355,11 @@ if (temp_count2==1)
 	{
 		robot3x = temp_robot3x + 1;
 		temp_robot3x= robot3x ;
+			if (current_index3x> temp_robot3x)
+			{	
+			current_index3x = temp_robot3x;
+			}
+		status3=1;
 	}
 	
 		if ( temp_robot3y<16 && temp_robot3x ==52 && temp_obstacle3y==0 && temp_obstacle3x==0 )
@@ -203,12 +367,22 @@ if (temp_count2==1)
 			robot3y= temp_robot3y + 1 ;
 			temp_robot3y = robot3y ;
 			temp_robot3x = robot3x ;
+				if (current_index3y> temp_robot3y)
+				{	
+				current_index3y = temp_robot3y;
+				}
+			status3=1;
 		}
 		
 		if ( temp_robot3y==16 && temp_robot3x < 66 && temp_obstacle3y==0 && temp_obstacle3x==0)
 			{
 				robot3x = temp_robot3x + 1;
 				temp_robot3x= robot3x ;
+					if (current_index3x> temp_robot3x)
+					{	
+					current_index3x = temp_robot3x;
+					}
+				status3=1;
 			} 
 
 		if ( temp_robot3y<32 && temp_robot3x ==66 && temp_obstacle3y==0 && temp_obstacle3x==0 )
@@ -216,12 +390,22 @@ if (temp_count2==1)
 			robot3y= temp_robot3y + 1 ;
 			temp_robot3y = robot3y ;
 			temp_robot3x = robot3x ;
+				if (current_index3y> temp_robot3y)
+				{	
+				current_index3y = temp_robot3y;
+				}
+			status3=1;
 		}
 
 		if ( temp_robot3y==32 && temp_robot3x >12 && temp_obstacle3y==0 && temp_obstacle3x==0)
 			{
 				robot3x = temp_robot3x - 1;
 				temp_robot3x= robot3x ;
+				status3=1;
+					if (current_index3x> temp_robot3x)
+					{	
+					current_index3x = temp_robot3x;
+					}
 			} 
 
 		if ( temp_robot3y<48 && temp_robot3x ==12 && temp_obstacle3y==0 && temp_obstacle3x==0 )
@@ -229,22 +413,34 @@ if (temp_count2==1)
 			robot3y= temp_robot3y + 1 ;
 			temp_robot3y = robot3y ;
 			temp_robot3x = robot3x ;
+			status3=1;
+				if (current_index3y> temp_robot3y)
+				{	
+				current_index3y = temp_robot3y;
+				}
 		}
 		
 		if ( temp_robot3y==48 && temp_robot3x < 35 && temp_obstacle3y==0 && temp_obstacle3x==0)
 			{
 				robot3x = temp_robot3x + 1;
 				temp_robot3x= robot3x ;
+				status3=1;
+					if (current_index3x> temp_robot3x)
+					{	
+					current_index3x = temp_robot3x;
+					}
 			} 
 
 	if (temp_obstacle3y==1 )
 		{
 		robot3y= robot3y;
+		status3=0;
 		}
 	else
 	if (temp_obstacle3x==1 )
 		{
 		robot3x= robot3x;
+		status3=0;
 		}
 	}
 	
@@ -255,6 +451,11 @@ if (temp_count3==1)
 	{
 		robot3x = temp_robot3x + 1;
 		temp_robot3x= robot3x ;
+		status3=1;
+			if (current_index3x> temp_robot3x)
+			{	
+			current_index3x = temp_robot3x;
+			}
 	}
 	
 		if ( temp_robot3y<16 && temp_robot3x ==52 && temp_obstacle3y==0 && temp_obstacle3x==0 )
@@ -262,12 +463,22 @@ if (temp_count3==1)
 			robot3y= temp_robot3y + 1 ;
 			temp_robot3y = robot3y ;
 			temp_robot3x = robot3x ;
+			status3=1;
+				if (current_index3y> temp_robot3y)
+				{	
+				current_index3y = temp_robot3y;
+				}
 		}
 		
 		if ( temp_robot3y==16 && temp_robot3x < 66 && temp_obstacle3y==0 && temp_obstacle3x==0)
 			{
 				robot3x = temp_robot3x + 1;
 				temp_robot3x= robot3x ;
+				status3=1;
+					if (current_index3x> temp_robot3x)
+					{		
+					current_index3x = temp_robot3x;
+					}
 			} 
 
 		if ( temp_robot3y<32 && temp_robot3x ==66 && temp_obstacle3y==0 && temp_obstacle3x==0 )
@@ -275,12 +486,22 @@ if (temp_count3==1)
 			robot3y= temp_robot3y + 1 ;
 			temp_robot3y = robot3y ;
 			temp_robot3x = robot3x ;
+			status3=1;
+				if (current_index3y> temp_robot3y)
+				{	
+				current_index3y = temp_robot3y;
+				}
 		}
 
 		if ( temp_robot3y==32 && temp_robot3x >12 && temp_obstacle3y==0 && temp_obstacle3x==0)
 			{
 				robot3x = temp_robot3x - 1;
 				temp_robot3x= robot3x ;
+				status3=1;
+					if (current_index3x> temp_robot3x)
+					{	
+					current_index3x = temp_robot3x;
+					}
 			} 
 
 		if ( temp_robot3y<38 && temp_robot3x ==12 && temp_obstacle3y==0 && temp_obstacle3x==0 )
@@ -288,12 +509,22 @@ if (temp_count3==1)
 			robot3y= temp_robot3y + 1 ;
 			temp_robot3y = robot3y ;
 			temp_robot3x = robot3x ;
+				if (current_index3y> temp_robot3y)
+				{	
+				current_index3y = temp_robot3y;
+				}
+			status3=1;
 		}
 		
 		if ( temp_robot3y==38 && temp_robot3x < 68 && temp_obstacle3y==0 && temp_obstacle3x==0)
 			{
 				robot3x = temp_robot3x + 1;
 				temp_robot3x= robot3x ;
+				status3=1;
+				if (current_index3x> temp_robot3x)
+				{	
+				current_index3x = temp_robot3x;
+				}
 			} 
 		
 		if ( temp_robot3y<48 && temp_robot3x ==68 && temp_obstacle3y==0 && temp_obstacle3x==0 )
@@ -301,6 +532,11 @@ if (temp_count3==1)
 			robot3y= temp_robot3y + 1 ;
 			temp_robot3y = robot3y ;
 			temp_robot3x = robot3x ;
+			status3=1;
+				if (current_index3y> temp_robot3y)
+				{	
+				current_index3y = temp_robot3y;
+				}
 		}
 
 		if ( temp_robot3y==48 && temp_robot3x > 53 && temp_obstacle3y==0 && temp_obstacle3x==0)
@@ -308,17 +544,24 @@ if (temp_count3==1)
 				robot3x = temp_robot3x - 1;
 				temp_robot3x= robot3x ;
 				temp_robot3y = robot3y ;
+				status3=1;
+					if (current_index3x> temp_robot3x)
+					{	
+					current_index3x = temp_robot3x;
+					}
 			} 
 		
 
 	if (temp_obstacle3y==1 )
 		{
 		robot3y= robot3y;
+		status3=0;
 		}
 	else
 	if (temp_obstacle3x==1 )
 		{
 		robot3x= robot3x;
+		status3=0;
 		}
   }
 }
